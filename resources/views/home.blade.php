@@ -59,14 +59,13 @@
 
                     </div>
                     <div class="col-lg-6 col-12 mx-auto text-center text-white">
-                        <h1 class="font-weight-bold">I'am Vishnu k</h1>
-                        <p class="lead mb-5">Entry level FullStack Web Developer with passion for coding and problem
-                            solving.</p>
+                        <h1 class="font-weight-bold">I'am {{ @$getrecord[0]->name }}</h1>
+                        <p class="lead mb-5">{{ @$getrecord[0]->description }}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-5 col-12 mx-auto text-center"> <img
-                            src="{{ asset('img/IMG-20230103-WA0019-Photoroom.png') }}" class="img-fluid"> </div>
+                            src="{{ url('uploads/profile/' . @$getrecord[0]->profile) }}" class="img-fluid"> </div>
                 </div>
             </div>
         </div>

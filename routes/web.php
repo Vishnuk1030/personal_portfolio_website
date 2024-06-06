@@ -30,6 +30,8 @@ Route::group(['middleware' => 'admin.middleware'], function () {
 
     Route::get('/admin/about_me', [DashboardController::class, 'about_me'])->name('admin.aboutme');
 
+    Route::post('/admin/about_me/store', [DashboardController::class, 'about_me_store'])->name('admin.aboutme.store');
+
     Route::get('/admin/skillSet', [DashboardController::class, 'skillSet'])->name('admin.skillSet');
 
     Route::get('/admin/portfolio', [DashboardController::class, 'portfolio'])->name('admin.portfolio');
