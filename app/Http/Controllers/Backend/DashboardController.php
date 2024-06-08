@@ -4,22 +4,24 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Aboutme;
+use App\Models\Person_Info;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('backend.dashboard.list');
+        $data['getrecord'] = Aboutme::all();
+        return view('backend.dashboard.list', $data);
     }
 
-    public function about_me()
+    public function Home()
     {
         $data['getrecord'] = Aboutme::all();
-        return view('backend.aboutme.list', $data);
+        return view('backend.Home.list', $data);
     }
 
-    public function about_me_store(Request $request)
+    public function Home_store(Request $request)
     {
 
         if ($request->add_to_update == "Add") {
@@ -46,26 +48,59 @@ class DashboardController extends Controller
         }
         $insertRecord->save();
 
+        return redirect()->back()->with('success', "Home Page added successfully..");
+    }
+
+    public function About_me()
+    {
+        $data['getrecord'] = Aboutme::all();
+        $info['person'] = Person_Info::all();
+
+        return view('backend.About_me.list', $data,$info);
+    }
+
+    public function About_me_store(Request $request)
+    {
+        // dd($request->all());
+        $insertRecord = new Person_Info;
+        $insertRecord->first_name = trim($request->first_name);
+        $insertRecord->last_name = trim($request->last_name);
+        $insertRecord->age = trim($request->age);
+        $insertRecord->nationality = trim($request->nationality);
+        $insertRecord->address = trim($request->address);
+        $insertRecord->phone = trim($request->phone);
+        $insertRecord->email = trim($request->email);
+        $insertRecord->languages = trim($request->languages);
+        $insertRecord->description = trim($request->description);
+        $insertRecord->degree  = trim($request->Degree);
+        $insertRecord->plus_two = trim($request->Plus_Two);
+        $insertRecord->sslc = trim($request->SSLC);
+
+        $insertRecord->save();
         return redirect()->back()->with('success', "Aboutme added successfully..");
     }
 
     public function skillSet()
     {
-        return view('backend.skillSet.list');
+        $data['getrecord'] = Aboutme::all();
+        return view('backend.skillSet.list', $data);
     }
 
     public function portfolio()
     {
-        return view('backend.portfolio.list');
+        $data['getrecord'] = Aboutme::all();
+        return view('backend.portfolio.list', $data);
     }
 
     public function contact()
     {
-        return view('backend.contact.list');
+        $data['getrecord'] = Aboutme::all();
+        return view('backend.contact.list', $data);
     }
 
     public function blog()
     {
-        return view('backend.blog.list');
+        $data['getrecord'] = Aboutme::all();
+        return view('backend.blog.list', $data);
     }
 }

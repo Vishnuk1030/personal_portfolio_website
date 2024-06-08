@@ -28,9 +28,14 @@ Route::group(['middleware' => 'admin.middleware'], function () {
 
     Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
-    Route::get('/admin/about_me', [DashboardController::class, 'about_me'])->name('admin.aboutme');
+    Route::get('/admin/Home', [DashboardController::class, 'Home'])->name('admin.Home');
 
-    Route::post('/admin/about_me/store', [DashboardController::class, 'about_me_store'])->name('admin.aboutme.store');
+    Route::post('/admin/Home/store', [DashboardController::class, 'Home_store'])->name('admin.Home.store');
+
+    Route::get('/admin/About_me', [DashboardController::class, 'About_me'])->name('admin.About_me');
+
+    Route::post('/admin/About_me/store', [DashboardController::class, 'About_me_store'])->name('admin.About_me.store');
+
 
     Route::get('/admin/skillSet', [DashboardController::class, 'skillSet'])->name('admin.skillSet');
 

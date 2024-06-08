@@ -1,5 +1,6 @@
 @extends('backend.layouts.app')
 
+@section('title', 'Home')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -10,12 +11,13 @@
                 @include('backend.success.msg')
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">About me</h1>
-                    </div><!-- /.col -->
+                        <h1 class="m-0">Home</h1>
+                    </div>
+                    <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">About me</li>
+                            <li class="breadcrumb-item active">Home</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -27,9 +29,9 @@
                     <div class="col-md-12">
                         <div class="card card-info">
                             <div class="card-header">
-                                <h3 class="card-title">About me</h3>
+                                <h3 class="card-title">Home</h3>
                             </div>
-                            <form action="{{ route('admin.aboutme.store') }}" class="form-horizontal" method="POST"
+                            <form action="{{ route('admin.Home.store') }}" class="form-horizontal" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
 

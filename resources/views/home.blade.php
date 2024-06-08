@@ -19,6 +19,7 @@
     <style>
 
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
@@ -33,18 +34,19 @@
                     aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto menu2">
-                        <li class="nav-item active2"> <a class="nav-link" href="#about">About Me</a> </li>
+                        <li class="nav-item active2"> <a class="nav-link" href="#home">Home</a> </li>
+                        <li class="nav-item active2"> <a class="nav-link" href="#about">About me</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="#skillset">Skillsets</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="#portfolio">Portfolio</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="#blog">Blog</a> </li>
-                        <li class="nav-item"> <a class="nav-link btn btn-primary text-white" href="#contact">Contact</a>
+                        <li class="nav-item"> <a class="nav-link btn btn-outline-info" href="#contact">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="pt-5">
-            <div class="container pt-5" id="about">
+            <div class="container pt-5" id="home">
                 <div class="row pt-5 position-relative">
                     <div class="position-absolute" style="top:166px; left:15px;"> <a href="">
                             <div class="kk shadow-sm"> <i class="lni lni-instagram-original"></i> </div>
@@ -68,6 +70,60 @@
                             src="{{ url('uploads/profile/' . @$getrecord[0]->profile) }}" class="img-fluid"> </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="bg-light pt-5" id="about">
+        <div class="container pb-5">
+            <div class="row py-5">
+                <div class="col-12 text-center">
+                    <h2 class="h1 font-weight-bold mb-5">About me <span class="text-primary hh">.</span></h2>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.F</p>
+                <div class="col-md-3">
+                    <h1>Personal Info</h1>
+                    <p class="mt-4">First Name: <b>vishnu</b></p>
+                    <p>Last Name: <b>vishnu</b></p>
+                    <p>Age: <b>vishnu</b></p>
+                    <p>Nationality: <b>vishnu</b></p>
+                </div>
+                <div class="col-md-3">
+                    <br>
+                    <p class="mt-5">Address: <b>vishnu</b></p>
+                    <p>Phone: <b>vishnu</b></p>
+                    <p>Email: <b>vishnu</b></p>
+                    <p>Languages: <b>vishnu</b></p>
+                </div>
+
+                <div class="col-md-6">
+                    <h1>Educational Info</h1>
+                    <p class="mt-4"><b>2020-2023</b>: Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem
+                        Ipsum has been
+                        the
+                        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                    </p>
+                    <p> <b>2018-2020</b>: type
+                        and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+                        the
+                        leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
+                        1960s
+                        with the release of Letraset shee </p>
+                    <p><b>2017-2018</b>: type
+                        and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+                        the
+                        leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
+                        1960s
+                        with the release of Letraset shee</p>
+                </div>
+                <button class="btn btn-outline-primary">DOWNLOAD CV <i class="fa fa-download"></i></button>
+
+            </div>
+
         </div>
     </div>
     <div class="bg-light pt-5" id="skillset">
