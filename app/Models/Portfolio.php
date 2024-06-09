@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Person_Info extends Model
+class Portfolio extends Model
 {
     use HasFactory;
 
-    public $table = 'person__infos';
+    public $table = 'portfolios';
 
     protected $guarded = [];
 }

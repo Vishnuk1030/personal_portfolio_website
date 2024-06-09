@@ -78,49 +78,31 @@
                 <div class="col-12 text-center">
                     <h2 class="h1 font-weight-bold mb-5">About me <span class="text-primary hh">.</span></h2>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.F</p>
+                <p>{{ @$info[0]->description }}</p>
                 <div class="col-md-3">
                     <h1>Personal Info</h1>
-                    <p class="mt-4">First Name: <b>vishnu</b></p>
-                    <p>Last Name: <b>vishnu</b></p>
-                    <p>Age: <b>vishnu</b></p>
-                    <p>Nationality: <b>vishnu</b></p>
+                    <p class="mt-4">First Name: <b>{{ @$info[0]->first_name }}</b></p>
+                    <p>Last Name: <b>{{ @$info[0]->last_name }}</b></p>
+                    <p>Age: <b>{{ @$info[0]->age }}</b></p>
+                    <p>Nationality: <b>{{ @$info[0]->nationality }}</b></p>
                 </div>
                 <div class="col-md-3">
                     <br>
-                    <p class="mt-5">Address: <b>vishnu</b></p>
-                    <p>Phone: <b>vishnu</b></p>
-                    <p>Email: <b>vishnu</b></p>
-                    <p>Languages: <b>vishnu</b></p>
+                    <p class="mt-5">Address: <b>{{ @$info[0]->address }}</b></p>
+                    <p>Phone: <b>{{ @$info[0]->phone }}</b></p>
+                    <p>Email: <b>{{ @$info[0]->email }}</b></p>
+                    <p>Languages: <b>{{ @$info[0]->languages }}</b></p>
                 </div>
 
                 <div class="col-md-6">
                     <h1>Educational Info</h1>
-                    <p class="mt-4"><b>2020-2023</b>: Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem
-                        Ipsum has been
-                        the
-                        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                    <p class="mt-4"><b>2020-2023</b>: {{ @$info[0]->degree }}
                     </p>
-                    <p> <b>2018-2020</b>: type
-                        and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                        the
-                        leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-                        1960s
-                        with the release of Letraset shee </p>
-                    <p><b>2017-2018</b>: type
-                        and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-                        the
-                        leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-                        1960s
-                        with the release of Letraset shee</p>
+                    <p> <b>2018-2020</b>: {{ @$info[0]->plus_two }} </p>
+                    <p><b>2017-2018</b>: {{ @$info[0]->sslc }} </p>
                 </div>
-                <button class="btn btn-outline-primary">DOWNLOAD CV <i class="fa fa-download"></i></button>
+                <a href="{{ route('pdf') }}" class="btn btn-outline-primary">DOWNLOAD CV <i
+                        class="fa fa-download"></i></a>
 
             </div>
 
@@ -132,28 +114,33 @@
                 <div class="col-12 text-center">
                     <h2 class="h1 font-weight-bold mb-5">Skillset <span class="text-primary hh">.</span></h2>
                 </div>
-                <div class="col-lg-4 col-12">
+                <div class="col-lg-3 col-12">
+                    <div class="tt shadow-sm"> <i class="lni lni-code-alt"></i> </div>
+                    <div class="p-5 shadow-sm border-radius-new bg-white">
+                        <h4 class="font-weight-bold mb-3">Frontend</h4>
+                        <p class="m-0">HTML,CSS,JAVASCRIPT,
+                            jQuery,Bootstrap,AJAX</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12">
                     <div class="tt shadow-sm"> <i class="lni lni-code"></i> </div>
                     <div class="p-5 shadow-sm border-radius-new bg-white">
-                        <h4 class="font-weight-bold mb-3">Web Development</h4>
-                        <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo auctor
-                            augue, id accumsan ante semper et. </p>
+                        <h4 class="font-weight-bold mb-3">Backend</h4>
+                        <p class="m-0">Laravel,PHP,CodeIgniter</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-12">
-                    <div class="tt shadow-sm"> <i class="lni lni-select"></i> </div>
+                <div class="col-lg-3 col-12">
+                    <div class="tt shadow-sm"> <i class="lni lni-database"></i> </div>
                     <div class="p-5 shadow-sm border-radius-new bg-white">
-                        <h4 class="font-weight-bold mb-3">User Interface Design</h4>
-                        <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo auctor
-                            augue, id accumsan ante semper et. </p>
+                        <h4 class="font-weight-bold mb-3">Database</h4>
+                        <p class="m-0">MySQL</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-12">
-                    <div class="tt shadow-sm"> <i class="lni lni-video"></i> </div>
+                <div class="col-lg-3 col-12">
+                    <div class="tt shadow-sm"> <i class="lni lni-cloud-network"></i> </div>
                     <div class="p-5 shadow-sm border-radius-new bg-white">
-                        <h4 class="font-weight-bold mb-3">Video Editing</h4>
-                        <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo auctor
-                            augue, id accumsan ante semper et. </p>
+                        <h4 class="font-weight-bold mb-3">VersionControl</h4>
+                        <p class="m-0">GIT,Github</p>
                     </div>
                 </div>
             </div>

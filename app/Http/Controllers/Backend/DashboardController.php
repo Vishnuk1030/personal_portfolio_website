@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Aboutme;
 use App\Models\Person_Info;
+use App\Models\SkillSet;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -56,13 +57,20 @@ class DashboardController extends Controller
         $data['getrecord'] = Aboutme::all();
         $info['person'] = Person_Info::all();
 
-        return view('backend.About_me.list', $data,$info);
+        return view('backend.About_me.list', $data, $info);
     }
 
     public function About_me_store(Request $request)
     {
-        // dd($request->all());
-        $insertRecord = new Person_Info;
+        if ($request->add_to_update == "Add") {
+            $insertRecord = request()->validate([
+                'first_name' => "required"
+            ]);
+            $insertRecord = new Person_Info;
+        } else {
+            $insertRecord = Person_Info::findOrFail($request->id);
+        }
+
         $insertRecord->first_name = trim($request->first_name);
         $insertRecord->last_name = trim($request->last_name);
         $insertRecord->age = trim($request->age);
@@ -83,7 +91,28 @@ class DashboardController extends Controller
     public function skillSet()
     {
         $data['getrecord'] = Aboutme::all();
-        return view('backend.skillSet.list', $data);
+        $skillset['data'] = SkillSet::all();
+        return view('backend.skillSet.list', $data, $skillset);
+    }
+
+    public function skillSet_store(Request $request)
+    {
+
+        if ($request->add_to_update == "Add") {
+            $inserRecords = request()->validate([
+                "Frontend" => 'required'
+            ]);
+            $inserRecords = new SkillSet;
+        } else {
+            $inserRecords = SkillSet::findOrFail($request->id);
+        }
+        // dd($request->all());
+        $inserRecords->frontend = trim($request->Frontend);
+        $inserRecords->backend = trim($request->Backend);
+        $inserRecords->database = trim($request->database);
+        $inserRecords->vcs = trim($request->version_control);
+        $inserRecords->save();
+        return redirect()->back()->with('success', "Skillset added successfully..");
     }
 
     public function portfolio()
@@ -91,6 +120,8 @@ class DashboardController extends Controller
         $data['getrecord'] = Aboutme::all();
         return view('backend.portfolio.list', $data);
     }
+
+
 
     public function contact()
     {
