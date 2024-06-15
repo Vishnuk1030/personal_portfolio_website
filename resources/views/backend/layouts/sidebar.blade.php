@@ -74,7 +74,7 @@
 
                     <li class="nav-item">
                         <a href="{{ route('admin.portfolio') }}"
-                            class="nav-link {{ Route::is('admin.portfolio','admin.portfolio.add') ? 'active' : '' }}">
+                            class="nav-link {{ Route::is('admin.portfolio','admin.portfolio.add','admin.portfolio.edit') ? 'active' : '' }}">
                             <i class="nav-icon fa fa-briefcase"></i>
                             <p>
                                 Portfolio

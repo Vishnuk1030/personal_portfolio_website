@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Aboutme;
+use App\Models\Contact;
 use App\Models\Person_Info;
+use App\Models\Portfolio;
 use App\Models\SkillSet;
 use Illuminate\Http\Request;
 
@@ -102,7 +104,7 @@ class DashboardController extends Controller
             $inserRecords = request()->validate([
                 "Frontend" => 'required'
             ]);
-            $inserRecords = new SkillSet;
+            $inserRecords = new SkillSet();
         } else {
             $inserRecords = SkillSet::findOrFail($request->id);
         }
@@ -117,8 +119,9 @@ class DashboardController extends Controller
 
     public function portfolio()
     {
+        $portfolios = Portfolio::all();
         $data['getrecord'] = Aboutme::all();
-        return view('backend.portfolio.list', $data);
+        return view('backend.portfolio.list', $data, compact('portfolios'));
     }
 
 
@@ -126,7 +129,15 @@ class DashboardController extends Controller
     public function contact()
     {
         $data['getrecord'] = Aboutme::all();
-        return view('backend.contact.list', $data);
+        $contact = Contact::all();
+        return view('backend.contact.list', $data, compact('contact'));
+    }
+
+    public function contact_delete($id)
+    {
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+        return redirect()->back()->with('success', "Contact deleted successfully..");
     }
 
     public function blog()

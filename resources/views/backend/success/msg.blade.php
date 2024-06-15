@@ -1,5 +1,4 @@
-<div class="clear-both">
-</div>
+
 
 @if (session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show color col-md-12" role="alert">

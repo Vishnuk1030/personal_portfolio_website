@@ -23,6 +23,9 @@
 
         <section class="content">
             <div class="container-fluid">
+                {{-- success msg --}}
+                @include('backend.success.msg')
+                {{-- / success msg --}}
                 <a href="{{ route('admin.portfolio.add') }}" class="btn btn-primary">Add Portfolio</a>
                 <div class="row mt-3">
                     <div class="col-md-12">
@@ -36,20 +39,29 @@
                                         <th>Id</th>
                                         <th>Title</th>
                                         <th>Image</th>
+                                        <th>URL</th>
                                         <th>Decsription</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="text-center">
-                                        <td>1</td>
-                                        <td>Title image</td>
-                                        <td>portfoiolo Decsription</td>
-                                        <td>image set</td>
-                                        <td><a href="" class="btn btn-success">edit</a>
-                                            <a href="" class="btn btn-danger">delete</a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($portfolios as $portfolio)
+                                        <tr class="text-center">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $portfolio->title }}</td>
+                                            <td><img src="{{ asset('uploads/portfolio/' . $portfolio->image) }}"
+                                                    alt="image" width="100px" height="80px"></td>
+                                            <td>{{ $portfolio->url }}</td>
+                                            <td>{{ $portfolio->description }}</td>
+                                            <td><a href="{{ route('admin.portfolio.edit', encrypt($portfolio->id)) }}"
+                                                    class="btn btn-success">edit</a>
+
+                                                <a href="{{ route('admin.portfolio.delete', $portfolio->id) }}"
+                                                    class="btn btn-danger"
+                                                    onclick="return confirm('Are you sure want to delete?')">delete</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
