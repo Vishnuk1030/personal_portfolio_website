@@ -26,7 +26,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/pdf', [HomeController::class, 'pdf'])->name('pdf');
 
-Route::post('/contact/post',[HomeController::class,'Contact_post'])->name('contact.post');
+Route::post('/contact/post', [HomeController::class, 'Contact_post'])->name('contact.post');
 //Admin
 
 Route::group(['middleware' => 'admin.middleware'], function () {
@@ -62,6 +62,11 @@ Route::group(['middleware' => 'admin.middleware'], function () {
     Route::get('/admin/contact/delete/{id}', [DashboardController::class, 'contact_delete'])->name('admin.contact.delete');
 
     Route::get('/admin/blog', [DashboardController::class, 'blog'])->name('admin.blog');
+
+    Route::get('/admin/myaccount', [DashboardController::class, 'myaccount'])->name('admin.myaccount');
+
+    Route::put('/admin/myaccount/update', [DashboardController::class, 'myaccount_update'])->name('admin.myaccount.update');
+
 });
 
 

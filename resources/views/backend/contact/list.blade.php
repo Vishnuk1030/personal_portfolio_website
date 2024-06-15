@@ -14,7 +14,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                             <li class="breadcrumb-item active">Contact</li>
                         </ol>
                     </div><!-- /.col -->
@@ -46,7 +46,7 @@
                                     <tbody>
                                         @foreach ($contact as $value)
                                             <tr>
-                                                <td>{{ $value->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $value->name }}</td>
                                                 <td>{{ $value->email }}</td>
                                                 <td>{{ $value->subject }}</td>

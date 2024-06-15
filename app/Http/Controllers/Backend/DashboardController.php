@@ -8,7 +8,10 @@ use App\Models\Contact;
 use App\Models\Person_Info;
 use App\Models\Portfolio;
 use App\Models\SkillSet;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -144,5 +147,29 @@ class DashboardController extends Controller
     {
         $data['getrecord'] = Aboutme::all();
         return view('backend.blog.list', $data);
+    }
+
+    public function myaccount()
+    {
+        $data['getrecord'] = Aboutme::all();
+        return view('backend.my_account.list', $data);
+    }
+
+    public function myaccount_update(Request $request)
+    {
+
+        $user = request()->validate([
+            'email' => 'required|unique:users,email,' . Auth::user()->id
+        ]);
+        $user = User::find(Auth::user()->id);
+
+        $user->name = trim($request->name);
+        $user->email = trim($request->email);
+
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        return redirect()->back()->with('success', 'My account updated successfully');
     }
 }
